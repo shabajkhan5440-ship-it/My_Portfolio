@@ -1,0 +1,1095 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shahabaj Khan | Python Django Developer</title>
+
+    <meta
+        name="description"
+        content="Personal portfolio of Shahabaj Khan - Python Django Developer"
+    >
+
+
+
+</head>
+
+<body>
+<link
+        rel="stylesheet"
+        href="{% static 'css/main.css' %}"
+    >
+<!-- CUSTOM CURSOR -->
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+
+<!-- BACKGROUND -->
+<div class="background">
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="glow glow-three"></div>
+
+</div>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="container nav-wrapper">
+
+        <a href="#home" class="logo">
+            <span>S</span>K.
+        </a>
+
+        <nav class="nav-menu">
+
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button
+                class="theme-btn"
+                id="themeBtn"
+                aria-label="Change theme"
+            >
+                ◐
+            </button>
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+        <div class="hero-content">
+
+            <div class="hello-badge reveal">
+                <span>✦</span>
+                Hello, I'm
+            </div>
+
+            <h1 class="hero-title reveal">
+
+                Shahabaj
+                <span>Khan</span>
+
+            </h1>
+
+            <h2 class="hero-role reveal">
+
+                I'm a
+                <span id="typed"></span>
+
+            </h2>
+
+            <p class="hero-description reveal">
+
+                I build modern, secure and scalable web applications
+                using Python, Django, JavaScript and MySQL.
+
+                <br>
+
+                Turning ideas into clean digital experiences.
+
+            </p>
+
+
+            <div class="hero-buttons reveal">
+
+                <a
+                    href="#contact"
+                    class="btn btn-primary"
+                >
+                    Hire Me
+                    <span>→</span>
+                </a>
+
+                <a
+                    href="#projects"
+                    class="btn btn-outline"
+                >
+                    View Projects
+                </a>
+
+            </div>
+
+
+            <div class="social-links reveal">
+
+                <a href="#" aria-label="GitHub">
+                    GH
+                </a>
+
+                <a href="#" aria-label="LinkedIn">
+                    in
+                </a>
+
+                <a href="#" aria-label="WhatsApp">
+                    WA
+                </a>
+
+                <a href="#contact" aria-label="Email">
+                    @
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-visual reveal">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="profile-wrapper">
+
+                <div class="profile-glow"></div>
+
+                <div class="profile-card">
+
+                    <div class="avatar">
+
+                        <div class="avatar-head"></div>
+
+                        <div class="avatar-body"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-python">
+
+                <strong>Python</strong>
+                <small>Django Developer</small>
+
+            </div>
+
+
+            <div class="floating-card card-code">
+
+                <span>&lt;/&gt;</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section class="section about" id="about">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span>About Me</span>
+
+            <h2>Who I Am</h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-text reveal">
+
+                <p>
+                    I'm a passionate Python Django developer focused
+                    on creating fast, responsive and user-friendly
+                    web applications.
+                </p>
+
+                <p>
+                    I enjoy solving real-world problems with clean
+                    code and modern technologies.
+                </p>
+
+
+                <div class="info-list">
+
+                    <div>
+                        <span>Name</span>
+                        <strong>Shahabaj Khan</strong>
+                    </div>
+
+                    <div>
+                        <span>Role</span>
+                        <strong>Python Django Developer</strong>
+                    </div>
+
+                    <div>
+                        <span>Location</span>
+                        <strong>India</strong>
+                    </div>
+
+                    <div>
+                        <span>Experience</span>
+                        <strong>1+ Years</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid reveal">
+
+                <div class="stat-card">
+
+                    <strong class="counter" data-target="10">
+                        0
+                    </strong>
+
+                    <span>Projects</span>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <strong class="counter" data-target="1">
+                        0
+                    </strong>
+
+                    <span>Years Experience</span>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <strong class="counter" data-target="5">
+                        0
+                    </strong>
+
+                    <span>Technologies</span>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <strong>100%</strong>
+
+                    <span>Commitment</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- SKILLS -->
+
+<section class="section skills" id="skills">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span>Skills & Expertise</span>
+
+            <h2>My Technical Skills</h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon python">
+                    Py
+                </div>
+
+                <h3>Python</h3>
+
+                <p>Backend Programming</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 90%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon django">
+                    Dj
+                </div>
+
+                <h3>Django</h3>
+
+                <p>Web Framework</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 88%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon js">
+                    JS
+                </div>
+
+                <h3>JavaScript</h3>
+
+                <p>Frontend Development</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 82%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon html">
+                    5
+                </div>
+
+                <h3>HTML</h3>
+
+                <p>Web Structure</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 95%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon css">
+                    #
+                </div>
+
+                <h3>CSS</h3>
+
+                <p>UI & Animation</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 92%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon mysql">
+                    DB
+                </div>
+
+                <h3>MySQL</h3>
+
+                <p>Database Management</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 84%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon api">
+                    API
+                </div>
+
+                <h3>REST API</h3>
+
+                <p>API Development</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 80%"></span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon git">
+                    Git
+                </div>
+
+                <h3>Git</h3>
+
+                <p>Version Control</p>
+
+                <div class="skill-bar">
+                    <span style="--width: 78%"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- SERVICES -->
+
+<section class="section services" id="services">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span>What I Do</span>
+
+            <h2>My Services</h2>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <div class="service-icon">
+                    &lt;/&gt;
+                </div>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Modern responsive websites with clean
+                    HTML, CSS and JavaScript.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <div class="service-icon">
+                    ⚙
+                </div>
+
+                <h3>Backend Development</h3>
+
+                <p>
+                    Secure and scalable backend applications
+                    using Python and Django.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <div class="service-icon">
+                    ◈
+                </div>
+
+                <h3>Database Design</h3>
+
+                <p>
+                    Structured database solutions using
+                    MySQL and Django ORM.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <div class="service-icon">
+                    ↗
+                </div>
+
+                <h3>API Development</h3>
+
+                <p>
+                    REST APIs for modern web and mobile
+                    applications.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PROJECTS -->
+
+<section class="section projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span>My Recent Work</span>
+
+            <h2>Featured Projects</h2>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <article class="project-card reveal">
+
+                <div class="project-image hospital">
+
+                    <div class="mock-window">
+
+                        <div class="mock-top"></div>
+
+                        <div class="mock-content">
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <span class="project-category">
+                        Django
+                    </span>
+
+                    <h3>
+                        Hospital Management System
+                    </h3>
+
+                    <p>
+                        Hospital management platform with
+                        patient, doctor and dashboard modules.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>MySQL</span>
+
+                    </div>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-image portfolio-project">
+
+                    <div class="code-lines">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <span class="project-category">
+                        Frontend
+                    </span>
+
+                    <h3>
+                        Modern Portfolio
+                    </h3>
+
+                    <p>
+                        Animated developer portfolio with
+                        GSAP and modern CSS effects.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+
+                    </div>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="project-card reveal">
+
+                <div class="project-image dicom">
+
+                    <div class="dicom-screen">
+
+                        DICOM
+
+                        <span>
+                            RECEIVER
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <span class="project-category">
+                        Python
+                    </span>
+
+                    <h3>
+                        DICOM Receiver
+                    </h3>
+
+                    <p>
+                        Medical image receiving system
+                        built with Python networking.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>Python</span>
+                        <span>DICOM</span>
+                        <span>Network</span>
+
+                    </div>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EXPERIENCE -->
+
+<section class="section experience" id="experience">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span>My Journey</span>
+
+            <h2>Experience & Education</h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="timeline-date">
+                        2025 — Present
+                    </span>
+
+                    <h3>
+                        Service Engineer
+                    </h3>
+
+                    <h4>
+                        Medical Technology
+                    </h4>
+
+                    <p>
+                        Working with technical systems,
+                        software installation, networking,
+                        troubleshooting and DICOM-related
+                        workflows.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="timeline-item reveal">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+
+                    <span class="timeline-date">
+                        2020 — 2023
+                    </span>
+
+                    <h3>
+                        Diploma in Computer Science Engineering
+                    </h3>
+
+                    <h4>
+                        Computer Science
+                    </h4>
+
+                    <p>
+                        Studied programming, database,
+                        networking, web development and
+                        computer fundamentals.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-wrapper">
+
+
+            <div class="contact-info reveal">
+
+                <div class="section-heading">
+
+                    <span>Get In Touch</span>
+
+                    <h2>
+                        Let's Work
+                        <strong>Together</strong>
+                    </h2>
+
+                </div>
+
+                <p>
+                    Have a project idea or want to work together?
+                    Send me a message and let's create something
+                    amazing.
+                </p>
+
+
+                <div class="contact-details">
+
+                    <div class="contact-detail">
+
+                        <span>✉</span>
+
+                        <div>
+                            <small>Email</small>
+                            <strong>
+                                your@email.com
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <span>☎</span>
+
+                        <div>
+                            <small>Phone</small>
+                            <strong>
+                                +91 XXXXX XXXXX
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <span>⌖</span>
+
+                        <div>
+                            <small>Location</small>
+                            <strong>
+                                India
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <form
+                class="contact-form reveal"
+                action="{% url 'contact' %}"
+                method="POST"
+            >
+
+                {% csrf_token %}
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Name</label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="your@email.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Subject</label>
+
+                    <input
+                        type="text"
+                        name="subject"
+                        placeholder="Project subject"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Message</label>
+
+                    <textarea
+                        name="message"
+                        rows="6"
+                        placeholder="Tell me about your project..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary submit-btn"
+                >
+
+                    Send Message
+
+                    <span>→</span>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container footer-wrapper">
+
+        <div class="footer-logo">
+            <span>S</span>K.
+        </div>
+
+        <p>
+            Designed & Developed with Python & ❤️
+        </p>
+
+        <p>
+            © 2026 Shahabaj Khan
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button
+    id="topBtn"
+    class="top-btn"
+>
+    ↑
+</button>
+
+
+
+<!-- GSAP -->
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+></script>
+
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+></script>
+
+
+<!-- TYPED.JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"
+></script>
+
+
+<!-- CUSTOM JS -->
+
+<script
+    src="{% static 'js/main.js' %}"
+></script>
+
+
+</body>
+
+</html>
