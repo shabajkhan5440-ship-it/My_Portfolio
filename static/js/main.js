@@ -1,530 +1,626 @@
-/* =====================================
-   TYPED.JS
-===================================== */
-
-const typed = new Typed("#typed", {
-
-    strings: [
-        "Python Developer",
-        "Django Developer",
-        "Web Developer",
-        "Backend Developer",
-        "Problem Solver"
-    ],
-
-    typeSpeed: 70,
-    backSpeed: 40,
-    backDelay: 1200,
-    loop: true
-
-});
-
 
 /* =====================================
-   GSAP
+   PORTFOLIO ANIMATIONS
+   GSAP + ScrollTrigger + Typed.js
 ===================================== */
 
-gsap.registerPlugin(ScrollTrigger);
+(() => {
+    "use strict";
+
+    function initPortfolio() {
+
+        /* =====================================
+           CHECK LIBRARIES
+        ===================================== */
+
+        if (typeof gsap === "undefined") {
+            console.error("GSAP library is not loaded.");
+            return;
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        /* =====================================
+           TYPED.JS
+        ===================================== */
 
+        const typedElement = document.querySelector("#typed");
+
+        if (typedElement && typeof Typed !== "undefined") {
+
+            if (typedElement._typedInstance) {
+                typedElement._typedInstance.destroy();
+            }
+
+            typedElement._typedInstance = new Typed("#typed", {
+                strings: [
+                    "Python Developer",
+                    "Django Developer",
+                    "Web Developer",
+                    "Backend Developer",
+                    "Problem Solver"
+                ],
+
+                typeSpeed: 60,
+                backSpeed: 35,
+                backDelay: 1200,
+                startDelay: 300,
+                loop: true,
+                showCursor: true
+            });
+        }
 
-/* HERO ANIMATION */
 
-const heroTimeline = gsap.timeline();
+        /* =====================================
+           GSAP DEFAULT SETTINGS
+        ===================================== */
 
+        gsap.defaults({
+            ease: "power3.out",
+            duration: 0.8
+        });
 
-heroTimeline
-    .from(".navbar", {
-        y: -80,
-        opacity: 0,
-        duration: 1
-    })
+
+        /* =====================================
+           HERO ANIMATION
+        ===================================== */
 
-    .from(".hello-badge", {
-        y: 30,
-        opacity: 0,
-        duration: .7
-    })
+        const heroTimeline = gsap.timeline({
+            defaults: {
+                ease: "power3.out"
+            }
+        });
+
+        const heroAnimations = [
+            [".navbar", { y: -35, opacity: 0, duration: 0.7 }],
+            [".hello-badge", { y: 20, opacity: 0, duration: 0.5 }],
+            [".hero-title", { y: 35, opacity: 0, duration: 0.7 }],
+            [".hero-role", { y: 20, opacity: 0, duration: 0.5 }],
+            [".hero-description", { y: 20, opacity: 0, duration: 0.6 }],
+            [".hero-buttons", { y: 20, opacity: 0, duration: 0.5 }],
+            [".social-links", { y: 15, opacity: 0, duration: 0.5 }],
+            [".hero-visual", {
+                scale: 0.9,
+                opacity: 0,
+                duration: 0.8,
+                ease: "back.out(1.5)"
+            }]
+        ];
 
-    .from(".hero-title", {
-        y: 50,
-        opacity: 0,
-        duration: .8
-    })
+        heroAnimations.forEach(([selector, animation]) => {
 
-    .from(".hero-role", {
-        y: 30,
-        opacity: 0,
-        duration: .6
-    })
+            if (document.querySelector(selector)) {
+                heroTimeline.from(
+                    selector,
+                    animation,
+                    selector === ".hero-visual" ? "-=0.5" : undefined
+                );
+            }
 
-    .from(".hero-description", {
-        y: 25,
-        opacity: 0,
-        duration: .6
-    })
+        });
 
-    .from(".hero-buttons", {
-        y: 25,
-        opacity: 0,
-        duration: .6
-    })
 
-    .from(".social-links", {
-        y: 20,
-        opacity: 0,
-        duration: .5
-    })
+        /* =====================================
+           PROFILE FLOAT
+        ===================================== */
 
-    .from(".hero-visual", {
-        scale: .8,
-        opacity: 0,
-        duration: 1,
-        ease: "back.out(1.7)"
-    }, "-=.8");
+        if (document.querySelector(".profile-wrapper")) {
 
+            gsap.to(".profile-wrapper", {
+                y: -12,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
 
-/* PROFILE FLOAT */
+        }
 
-gsap.to(".profile-wrapper", {
 
-    y: -15,
+        /* =====================================
+           ORBIT ANIMATIONS
+        ===================================== */
 
-    duration: 2,
+        if (document.querySelector(".orbit-one")) {
 
-    repeat: -1,
+            gsap.to(".orbit-one", {
+                rotation: 360,
+                duration: 18,
+                repeat: -1,
+                ease: "none"
+            });
 
-    yoyo: true,
+        }
 
-    ease: "sine.inOut"
+        if (document.querySelector(".orbit-two")) {
 
-});
+            gsap.to(".orbit-two", {
+                rotation: -360,
+                duration: 24,
+                repeat: -1,
+                ease: "none"
+            });
 
+        }
 
-/* ORBIT */
 
-gsap.to(".orbit-one", {
+        /* =====================================
+           BACKGROUND GLOW
+        ===================================== */
 
-    rotation: 360,
+        if (document.querySelector(".glow-one")) {
 
-    duration: 15,
+            gsap.to(".glow-one", {
+                x: 100,
+                y: 60,
+                duration: 8,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
 
-    repeat: -1,
+        }
 
-    ease: "none"
+        if (document.querySelector(".glow-two")) {
 
-});
+            gsap.to(".glow-two", {
+                x: -80,
+                y: 70,
+                duration: 10,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
 
+        }
 
-gsap.to(".orbit-two", {
 
-    rotation: -360,
+        /* =====================================
+           SCROLL REVEAL
+        ===================================== */
 
-    duration: 20,
+        gsap.utils.toArray(".reveal").forEach(element => {
 
-    repeat: -1,
-
-    ease: "none"
-
-});
-
-
-/* GLOW */
-
-gsap.to(".glow-one", {
-
-    x: 150,
-    y: 80,
-
-    duration: 8,
-
-    repeat: -1,
-
-    yoyo: true,
-
-    ease: "sine.inOut"
-
-});
-
-
-gsap.to(".glow-two", {
-
-    x: -120,
-    y: 100,
-
-    duration: 10,
-
-    repeat: -1,
-
-    yoyo: true,
-
-    ease: "sine.inOut"
-
-});
-
-
-/* =====================================
-   SCROLL REVEAL
-===================================== */
-
-gsap.utils.toArray(".reveal").forEach((element) => {
-
-    gsap.from(element, {
-
-        scrollTrigger: {
-
-            trigger: element,
-
-            start: "top 88%",
-
-            toggleActions:
-                "play none none reverse"
-
-        },
-
-        y: 50,
-
-        opacity: 0,
-
-        duration: .8,
-
-        ease: "power3.out"
-
-    });
-
-});
-
-
-/* =====================================
-   SKILL CARDS
-===================================== */
-
-gsap.from(".skill-card", {
-
-    scrollTrigger: {
-
-        trigger: ".skills-grid",
-
-        start: "top 80%"
-
-    },
-
-    y: 60,
-
-    opacity: 0,
-
-    stagger: .1,
-
-    duration: .7,
-
-    ease: "power3.out"
-
-});
-
-
-/* =====================================
-   SERVICE CARDS
-===================================== */
-
-gsap.from(".service-card", {
-
-    scrollTrigger: {
-
-        trigger: ".services-grid",
-
-        start: "top 80%"
-
-    },
-
-    scale: .85,
-
-    opacity: 0,
-
-    stagger: .12,
-
-    duration: .7,
-
-    ease: "back.out(1.4)"
-
-});
-
-
-/* =====================================
-   PROJECT CARDS
-===================================== */
-
-gsap.from(".project-card", {
-
-    scrollTrigger: {
-
-        trigger: ".projects-grid",
-
-        start: "top 80%"
-
-    },
-
-    y: 70,
-
-    opacity: 0,
-
-    stagger: .15,
-
-    duration: .8
-
-});
-
-
-/* =====================================
-   COUNTERS
-===================================== */
-
-document.querySelectorAll(".counter").forEach(counter => {
-
-    const target =
-        Number(counter.dataset.target);
-
-    ScrollTrigger.create({
-
-        trigger: counter,
-
-        start: "top 90%",
-
-        once: true,
-
-        onEnter: () => {
-
-            gsap.to(counter, {
-
-                innerText: target,
-
-                duration: 1.5,
-
-                snap: {
-                    innerText: 1
+            gsap.fromTo(
+                element,
+                {
+                    y: 35,
+                    autoAlpha: 0
                 },
+                {
+                    y: 0,
+                    autoAlpha: 1,
+                    duration: 0.8,
+                    ease: "power3.out",
 
-                ease: "power2.out"
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 90%",
+                        toggleActions: "play none none reverse",
+                        invalidateOnRefresh: true
+                    }
+                }
+            );
+
+        });
+
+
+        /* =====================================
+           SKILL CARDS
+        ===================================== */
+
+        const skillsGrid = document.querySelector(".skills-grid");
+
+        if (skillsGrid) {
+
+            gsap.fromTo(
+                skillsGrid.querySelectorAll(".skill-card"),
+                {
+                    y: 35,
+                    autoAlpha: 0
+                },
+                {
+                    y: 0,
+                    autoAlpha: 1,
+                    duration: 0.65,
+                    stagger: 0.12,
+
+                    scrollTrigger: {
+                        trigger: skillsGrid,
+                        start: "top 85%",
+                        once: true
+                    }
+                }
+            );
+
+        }
+
+
+        /* =====================================
+           SERVICE CARDS
+        ===================================== */
+
+        const servicesGrid = document.querySelector(".services-grid");
+
+        if (servicesGrid) {
+
+            gsap.fromTo(
+                servicesGrid.querySelectorAll(".service-card"),
+                {
+                    y: 30,
+                    scale: 0.96,
+                    autoAlpha: 0
+                },
+                {
+                    y: 0,
+                    scale: 1,
+                    autoAlpha: 1,
+                    duration: 0.7,
+                    stagger: 0.12,
+
+                    scrollTrigger: {
+                        trigger: servicesGrid,
+                        start: "top 85%",
+                        once: true
+                    }
+                }
+            );
+
+        }
+
+
+        /* =====================================
+           PROJECT CARDS
+        ===================================== */
+
+        const projectsGrid = document.querySelector(".projects-grid");
+
+        if (projectsGrid) {
+
+            gsap.fromTo(
+                projectsGrid.querySelectorAll(".project-card"),
+                {
+                    y: 40,
+                    autoAlpha: 0
+                },
+                {
+                    y: 0,
+                    autoAlpha: 1,
+                    duration: 0.75,
+                    stagger: 0.15,
+
+                    scrollTrigger: {
+                        trigger: projectsGrid,
+                        start: "top 85%",
+                        once: true
+                    }
+                }
+            );
+
+        }
+
+
+        /* =====================================
+           COUNTERS
+        ===================================== */
+
+        document.querySelectorAll(".counter").forEach(counter => {
+
+            const target = Number(counter.dataset.target);
+
+            if (!Number.isFinite(target)) return;
+
+            ScrollTrigger.create({
+
+                trigger: counter,
+                start: "top 90%",
+                once: true,
+
+                onEnter: () => {
+
+                    gsap.fromTo(
+                        counter,
+                        {
+                            innerText: 0
+                        },
+                        {
+                            innerText: target,
+                            duration: 1.5,
+                            snap: {
+                                innerText: 1
+                            },
+                            ease: "power2.out"
+                        }
+                    );
+
+                }
+
+            });
+
+        });
+
+
+        /* =====================================
+           MOBILE MENU
+        ===================================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navMenu = document.querySelector(".nav-menu");
+
+        if (menuBtn && navMenu) {
+
+            menuBtn.addEventListener("click", () => {
+
+                const isOpen = navMenu.classList.toggle("open");
+
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+            });
+
+            navMenu.querySelectorAll("a").forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navMenu.classList.remove("open");
+                    menuBtn.setAttribute("aria-expanded", "false");
+
+                });
 
             });
 
         }
 
-    });
 
-});
+        /* =====================================
+           THEME TOGGLE
+        ===================================== */
+
+        const themeBtn = document.getElementById("themeBtn");
+
+        if (themeBtn) {
+
+            themeBtn.addEventListener("click", () => {
+
+                const isLight = document.body.classList.toggle("light");
+
+                themeBtn.innerText = isLight ? "☀" : "◐";
+
+                themeBtn.setAttribute(
+                    "aria-label",
+                    isLight ? "Switch to dark theme" : "Switch to light theme"
+                );
+
+                try {
+                    localStorage.setItem(
+                        "portfolio-theme",
+                        isLight ? "light" : "dark"
+                    );
+                } catch (error) {
+                    console.warn("Theme preference could not be saved.");
+                }
+
+            });
+
+        }
 
 
-/* =====================================
-   MOBILE MENU
-===================================== */
+        /* =====================================
+           RESTORE THEME
+        ===================================== */
 
-const menuBtn =
-    document.getElementById("menuBtn");
+        try {
 
-const navMenu =
-    document.querySelector(".nav-menu");
+            const savedTheme = localStorage.getItem("portfolio-theme");
+
+            if (savedTheme === "light") {
+
+                document.body.classList.add("light");
+
+                if (themeBtn) {
+                    themeBtn.innerText = "☀";
+                }
+
+            }
+
+        } catch (error) {
+            console.warn("Saved theme could not be loaded.");
+        }
 
 
-menuBtn.addEventListener("click", () => {
+        /* =====================================
+           CUSTOM CURSOR
+        ===================================== */
 
-    navMenu.classList.toggle("open");
+        const cursor = document.querySelector(".cursor");
+        const cursorRing = document.querySelector(".cursor-ring");
 
-});
+        const supportsHover = window.matchMedia(
+            "(hover: hover) and (pointer: fine)"
+        ).matches;
+
+        if (cursor && cursorRing && supportsHover) {
+
+            document.addEventListener("mousemove", event => {
+
+                gsap.set(cursor, {
+                    x: event.clientX,
+                    y: event.clientY
+                });
+
+                gsap.to(cursorRing, {
+                    x: event.clientX,
+                    y: event.clientY,
+                    duration: 0.15,
+                    overwrite: "auto"
+                });
+
+            });
+
+            document.querySelectorAll(
+                "a, button, .project-card"
+            ).forEach(element => {
+
+                element.addEventListener("mouseenter", () => {
+
+                    gsap.to(cursorRing, {
+                        scale: 1.5,
+                        duration: 0.2,
+                        overwrite: "auto"
+                    });
+
+                });
+
+                element.addEventListener("mouseleave", () => {
+
+                    gsap.to(cursorRing, {
+                        scale: 1,
+                        duration: 0.2,
+                        overwrite: "auto"
+                    });
+
+                });
+
+            });
+
+        }
 
 
-document
-    .querySelectorAll(".nav-menu a")
-    .forEach(link => {
+        /* =====================================
+           BACK TO TOP
+        ===================================== */
 
-        link.addEventListener("click", () => {
+        const topBtn = document.getElementById("topBtn");
 
-            navMenu.classList.remove("open");
+        if (topBtn) {
 
+            const updateTopButton = () => {
+
+                topBtn.classList.toggle(
+                    "show",
+                    window.scrollY > 600
+                );
+
+            };
+
+            window.addEventListener(
+                "scroll",
+                updateTopButton,
+                { passive: true }
+            );
+
+            updateTopButton();
+
+            topBtn.addEventListener("click", () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            });
+
+        }
+
+
+        /* =====================================
+           ACTIVE NAVIGATION
+        ===================================== */
+
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-menu a");
+
+        function updateActiveNav() {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop =
+                    section.getBoundingClientRect().top + window.scrollY - 160;
+
+                if (window.scrollY >= sectionTop) {
+                    current = section.id;
+                }
+
+            });
+
+            navLinks.forEach(link => {
+
+                const href = link.getAttribute("href");
+
+                link.classList.toggle(
+                    "active",
+                    href === "#" + current && current !== ""
+                );
+
+            });
+
+        }
+
+        window.addEventListener(
+            "scroll",
+            updateActiveNav,
+            { passive: true }
+        );
+
+        updateActiveNav();
+
+
+        /* =====================================
+           REFRESH SCROLLTRIGGER
+        ===================================== */
+
+        // Wait until layout and images have settled.
+        window.addEventListener("load", () => {
+
+            requestAnimationFrame(() => {
+                ScrollTrigger.refresh();
+            });
+
+        }, { once: true });
+
+        // Handle browser resize and orientation changes.
+        let refreshTimer;
+
+        window.addEventListener("resize", () => {
+
+            clearTimeout(refreshTimer);
+
+            refreshTimer = setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 200);
+
+        }, { passive: true });
+
+        // Initial refresh after setup.
+        requestAnimationFrame(() => {
+            ScrollTrigger.refresh();
         });
-
-    });
-
-
-/* =====================================
-   THEME
-===================================== */
-
-const themeBtn =
-    document.getElementById("themeBtn");
-
-
-themeBtn.addEventListener("click", () => {
-
-    document.body.classList.toggle("light");
-
-    if (
-        document.body.classList.contains("light")
-    ) {
-
-        themeBtn.innerText = "☀";
-
-    } else {
-
-        themeBtn.innerText = "◐";
 
     }
 
-});
 
+    /* =====================================
+       START AFTER DOM IS READY
+    ===================================== */
 
-/* =====================================
-   CUSTOM CURSOR
-===================================== */
+    if (document.readyState === "loading") {
 
-const cursor =
-    document.querySelector(".cursor");
-
-const cursorRing =
-    document.querySelector(".cursor-ring");
-
-
-document.addEventListener("mousemove", (event) => {
-
-    gsap.to(cursor, {
-
-        x: event.clientX,
-
-        y: event.clientY,
-
-        duration: .05
-
-    });
-
-
-    gsap.to(cursorRing, {
-
-        x: event.clientX,
-
-        y: event.clientY,
-
-        duration: .15
-
-    });
-
-});
-
-
-/* =====================================
-   HOVER CURSOR
-===================================== */
-
-document
-    .querySelectorAll("a, button, .project-card")
-    .forEach(element => {
-
-        element.addEventListener("mouseenter", () => {
-
-            gsap.to(cursorRing, {
-
-                scale: 1.7,
-
-                duration: .2
-
-            });
-
-        });
-
-
-        element.addEventListener("mouseleave", () => {
-
-            gsap.to(cursorRing, {
-
-                scale: 1,
-
-                duration: .2
-
-            });
-
-        });
-
-    });
-
-
-/* =====================================
-   BACK TO TOP
-===================================== */
-
-const topBtn =
-    document.getElementById("topBtn");
-
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 600) {
-
-        topBtn.classList.add("show");
+        document.addEventListener(
+            "DOMContentLoaded",
+            initPortfolio,
+            { once: true }
+        );
 
     } else {
 
-        topBtn.classList.remove("show");
+        initPortfolio();
 
     }
 
-});
-
-
-topBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
-
-});
-
-
-/* =====================================
-   ACTIVE NAV
-===================================== */
-
-const sections =
-    document.querySelectorAll("section");
-
-const navLinks =
-    document.querySelectorAll(".nav-menu a");
-
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 150;
-
-        if (
-            window.scrollY >= sectionTop
-        ) {
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href")
-            === "#" + current
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
+})();
 
