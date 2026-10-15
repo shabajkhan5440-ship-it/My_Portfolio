@@ -1,25 +1,13 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .models import ContactMessage
 
 
 def home(request):
     return render(request, 'main/index.html')
 
 
-
-
-
-
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .models import ContactMessage
-
-
 def contact(request):
-
     if request.method == "POST":
 
         name = request.POST.get("name", "").strip()
@@ -27,6 +15,7 @@ def contact(request):
         subject = request.POST.get("subject", "").strip()
         message = request.POST.get("message", "").strip()
 
+        # Check all fields
         if not all([name, email, subject, message]):
             messages.error(
                 request,
@@ -34,6 +23,7 @@ def contact(request):
             )
             return redirect("home")
 
+        # Save contact message
         ContactMessage.objects.create(
             name=name,
             email=email,
@@ -49,4 +39,3 @@ def contact(request):
         return redirect("home")
 
     return redirect("home")
-
